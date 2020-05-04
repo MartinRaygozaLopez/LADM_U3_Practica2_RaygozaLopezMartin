@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".Main4Activity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="#000"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="EDITAR PEDIDO" />
+
+    <EditText
+        android:id="@+id/txt_ENombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="NOMBRE DEL CLIENTE" />
+
+    <EditText
+        android:id="@+id/txt_EDomicilio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="DOMICILIO" />
+
+    <EditText
+        android:id="@+id/txt_ECelular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="CELULAR"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="PEDIDO" />
+
+    <EditText
+        android:id="@+id/txt_EDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="DESCRIPCION/PRODUCTO" />
+
+    <EditText
+        android:id="@+id/txt_EPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="PRECIO"/>
+
+    <EditText
+        android:id="@+id/txt_ECantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="CANTIDAD"/>
+
+    <CheckBox
+        android:id="@+id/ckb_EEntregado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Entregado" />
+
+    <Button
+        android:id="@+id/btn_Editar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Actualizar" />
+
+    <Button
+        android:id="@+id/btn_ECancelar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Cancelar" />
+</LinearLayout>

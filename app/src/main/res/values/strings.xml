@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LADM_U3_Practica2_RaygozaLopezMartin</string>
+    <array name="clavesbusqueda">
+        <item>Nombre</item>
+        <item>Telefono</item>
+        <item>Producto</item>
+    </array>
+</resources>
