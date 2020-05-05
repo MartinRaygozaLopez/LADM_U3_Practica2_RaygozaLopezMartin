@@ -34,7 +34,7 @@ class Main3Activity : AppCompatActivity() {
                 listaID.clear()
                 for(document in querySnapshot!!){
                     var cadena = "Nombre: " + document.getString("nombre") + "\nDomicilio: " + document.getString("domicilio") +
-                            "\nCelular: " + document.getString("celular") + "\nProduccto: " + document.get("pedido.producto") +
+                            "\nCelular: " + document.getString("celular") + "\nProducto: " + document.get("pedido.producto") +
                             "\nEntregado: " + document.get("pedido.entregado")
                     dataLista.add(cadena)
                     listaID.add(document.id)
@@ -102,23 +102,45 @@ class Main3Activity : AppCompatActivity() {
                             resultado.setText(res)
                         }
                 }
-                1->{consultaTelefono(valor)}
-                2->{consultaProducto(valor)}
+                1->{
+                    baseRemota.collection("restaurante")
+                        .whereEqualTo("celular", valor)
+                        .addSnapshotListener{ querySnapshot, firebaseFirestoreException ->
+                            if(firebaseFirestoreException != null){
+                                resultado.setText("ERROR, NO HAY CONEXION")
+                                return@addSnapshotListener
+                            }
+
+                            var res = ""
+                            for(document in  querySnapshot!!){
+                                res += "ID: " + document.id + "\nNombre: " + document.getString("nombre") +
+                                        "\nCelular: " + document.getString("celular") + "\nDomicilio: " + document.getString("domicilio") +
+                                        "\nProducto: " + document.get("pedido.producto") + "\nPrecio: " + document.get("pedido.precio")+
+                                        "\nCantidad: " + document.get("pedido.cantidad") + "\nEntregado: " + document.get("pedido.entregado") + "\n\n"
+                            }
+                            resultado.setText(res)
+                        }
+                }
+                2->{baseRemota.collection("restaurante")
+                    .whereEqualTo("producto", valor)
+                    .addSnapshotListener{ querySnapshot, firebaseFirestoreException ->
+                        if(firebaseFirestoreException != null){
+                            resultado.setText("ERROR, NO HAY CONEXION")
+                            return@addSnapshotListener
+                        }
+
+                        var res = ""
+                        for(document in  querySnapshot!!){
+                            res += "ID: " + document.id + "\nNombre: " + document.getString("nombre") +
+                                    "\nCelular: " + document.getString("celular") + "\nDomicilio: " + document.getString("domicilio") +
+                                    "\nProducto: " + document.get("pedido.producto") + "\nPrecio: " + document.get("pedido.precio")+
+                                    "\nCantidad: " + document.get("pedido.cantidad") + "\nEntregado: " + document.get("pedido.entregado") + "\n\n"
+                        }
+                        resultado.setText(res)
+                    }}
             }
 
         }
-    }
-
-    private fun consultaNombre(valor: String, resultado : TextView) {
-
-    }
-
-    private fun consultaTelefono(valor: String) {
-
-    }
-
-    private fun consultaProducto(valor: String) {
-
     }
 
     private fun alertaEliminaActualizar(position: Int) {
